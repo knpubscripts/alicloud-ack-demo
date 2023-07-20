@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: mongo-express
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: mongo-express
@@ -13,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mongo-express
-        image: mongo-express
+        image: mongo-express:latest
         resources:
           limits:
             memory: "356Mi"

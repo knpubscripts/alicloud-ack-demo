@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ackdemo.fullname" . }}-mongodb-service
+  labels:
+  {{- include "ackdemo.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.mongodbService.type }}
+  selector:
+    app: mongodb
+  {{- include "ackdemo.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.mongodbService.ports | toYaml | nindent 2 -}}

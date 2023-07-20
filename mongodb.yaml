@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: mongo
+        image: mongo:latest
         resources:
           limits:
             memory: "500Mi"

@@ -1,0 +1,38 @@
+kubernetesClusterDomain: cluster.local
+mongoExpress:
+  mongoExpress:
+    image:
+      repository: mongo-express
+      tag: latest
+    resources:
+      limits:
+        cpu: 500m
+        memory: 356Mi
+  replicas: 2
+mongoExpressService:
+  ports:
+  - port: 8081
+    targetPort: 8081
+  type: ClusterIP
+mongodbConfigmap:
+  databaseUrl: mongodb-service
+mongodbDeployment:
+  mongodb:
+    image:
+      repository: mongo
+      tag: latest
+    resources:
+      limits:
+        cpu: 500m
+        memory: 500Mi
+  replicas: 2
+mongodbSecret:
+  mongoRootPassword: "admin123"
+  mongoRootUsername: "admin"
+mongodbService:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  type: ClusterIP
+nginxIngress:
+  domain: ackdemo.wegott.cloud

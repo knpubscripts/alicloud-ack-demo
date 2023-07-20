@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: k8sdemo.wegott.cloud
+    - host: "k8sdemo.wegott.cloud"
       http:
         paths:
           - backend:

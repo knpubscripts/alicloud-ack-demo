@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ackdemo.fullname" . }}-nginx-ingress
+  labels:
+    ingress-controller: nginx
+  {{- include "ackdemo.labels" . | nindent 4 }}
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.nginxIngress.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: '{{ include "ackdemo.fullname" . }}-mongo-express-service'
+            port:
+              number: 8081
+        path: /
+        pathType: ImplementationSpecific
