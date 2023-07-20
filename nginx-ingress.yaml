@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    ingress-controller: nginx
+  managedFields:
+  name: nginx-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8sdemo.wegott.cloud
+      http:
+        paths:
+          - backend:
+              service:
+                name: mongo-express-service
+                port:
+                  number: 8081
+            path: /
+            pathType: ImplementationSpecific
