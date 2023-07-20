@@ -54,3 +54,17 @@ Get the external IP of nginx-ingress, go to your dns management system, point re
     kubectl describe service mongodb-service
     kubectl logs mongo-express-xxxxxx
 ```
+
+### Using Helm Chart to deploy application
+Install helm
+
+Install Helmify tool to help automatically convert manifest yamls files to helm chart file
+
+go to source code folder and run command:
+
+```awk 'FNR==1 && NR!=1  {print "---"}{print}' ./*.yaml | helmify ackdemo```
+
+Now we have our helm chart, just run ```helm install``` command to deploy the application.
+
+``` helm install ackdemo ./ackdemo```
+
