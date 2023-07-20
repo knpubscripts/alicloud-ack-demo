@@ -35,6 +35,10 @@ Then you can use the kubectl to interact and control ACK cluster from your compu
     kubectl apply -f mongo-express.yaml
     kubectl apply -f nginx-ingress.yaml
 ```
+
+### Create DNS record:
+Get the external IP of nginx-ingress, go to your dns management system, point record A of your domain or sub-domain to this IP.
+
 ### kubectl get commands
 ```
     kubectl get pod
