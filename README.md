@@ -1,4 +1,7 @@
 # alicloud-ack-demo
+### Sample architecture
+<img src="https://github.com/knpubscripts/alicloud-ack-demo/blob/main/demo-architecture.jpg?raw=true" width="400px" />
+
 ### Install kubectl (Kubernetes Client tool):
 The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the [```kubectl```][kubectl_doc_link] reference documentation.
 
